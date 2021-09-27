@@ -36,3 +36,15 @@ elif ShirtType == "2":
 
 else :
     print(" Please select a valid shirt type '1' or '2'")    
+
+quantity = int(input("How many shirts would you like?"))
+
+print ("You have selected %s shirts in total!"% (str(quantity)))
+
+cost = quantity * 9.9
+
+aftertaxcost = cost * 1.13
+
+print ("Your cost before tax is %.2f!" %(cost))
+
+print ("Your cost after tax is %.2f!" %(aftertaxcost)) 
