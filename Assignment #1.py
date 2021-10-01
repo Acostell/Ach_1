@@ -1,4 +1,7 @@
 #Assigntment 1, Make a store and show the commit and push after.
+print("This assignment was to make a 'Storefront' for Abby's Merchandising (AM) including how many shirts, color, type and final price afterwards.")
+
+
 
 print ("Welcome to Abby's Merchandizing!")
 
@@ -45,6 +48,8 @@ cost = quantity * 9.9
 
 aftertaxcost = cost * 1.13
 
-print ("Your cost before tax is %.2f!" %(cost))
+print ("Your cost before tax is $%.2f!" %(cost))
 
-print ("Your cost after tax is %.2f!" %(aftertaxcost)) 
+print ("Your cost after tax is $%.2f!" %(aftertaxcost)) 
+
+print ("Please procceed to payment and have a nice day!")
