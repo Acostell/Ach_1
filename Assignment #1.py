@@ -44,7 +44,7 @@ quantity = int(input("How many shirts would you like?"))
 
 print ("You have selected %s shirts in total!"% (str(quantity)))
 
-cost = quantity * 9.9
+cost = quantity * 9.99
 
 aftertaxcost = cost * 1.13
 
