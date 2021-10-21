@@ -1,4 +1,6 @@
 #Assigntment 1, Make a store and show the commit and push after.
+"y" or "Y" or "yes" or "Yes" = True 
+
 print("This assignment was to make a 'Storefront' for Abby's Merchandising (AM) including how many shirts, color, type and final price afterwards.")
 
 
@@ -53,3 +55,4 @@ print ("Your cost before tax is $%.2f!" %(cost))
 print ("Your cost after tax is $%.2f!" %(aftertaxcost)) 
 
 print ("Please procceed to payment and have a nice day!")
+
