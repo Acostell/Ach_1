@@ -4,7 +4,7 @@ class Student:
 
     def __init__(self, name, studentID):
         self.name = name #this is an instance atrribute
-        self. studentID = studentID # also instance attribute
+        self.studentID = studentID # also instance attribute
 
         #alice = Student ("Alice McBride", 12345)
         #bob = Student ("Bob Mckenzie", 23453)
