@@ -141,12 +141,6 @@ class Calculate(object):
             self.total_after_discount = self.total_aftertax
 
         
-
-            
-            
-
-        
-
 print ("Welcome to Abby's Merchandising!")
 
    
@@ -163,8 +157,6 @@ sale1total.calcTotal(sale1.shirtQuantity,sale1.shirtPrice)
 print("Your total after tax and discounts is:$%.2f"%(sale1total.total_after_discount))
 
 print('The shirts you have selected are:', sale1.shirtQuantity, sale1.scolor, sale1.sType)
-
-
 
 
 while True:
