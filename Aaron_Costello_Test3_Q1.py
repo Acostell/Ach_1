@@ -1,4 +1,4 @@
 from time import localtime, strftime
 
-now= strftime("%B, %A %Y, %H:%M:%S",localtime())
+now= strftime("%m:%d:%Y , %H:%M:%S",localtime())
 print(now)
