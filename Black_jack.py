@@ -1,7 +1,7 @@
 #Black jack
 
 import random
-import os
+
 
 class Card:
     def __init__(self,suit,name,card_value):
@@ -14,6 +14,7 @@ class Card:
     def __repr__(self):
         return repr(self.name)
     
+
 
 def print_card(names):
     for name in names:
@@ -61,7 +62,7 @@ def Blackjack(deck):
 
         print("Your hand is: ")
         print_card(player_hand)
-        print("Your score is: ",(player_hand_score))
+        print("Your score is: ",(player_hand_score),"\n")
 
 
 
@@ -75,10 +76,16 @@ def Blackjack(deck):
 
 
         #print dealers cards, only print first card
-        print("Dealers hand is: \n")
+        print("Dealers hand is: ")
         print_card(dealer_hand)
+        print("Dealers score is: ",(dealer_hand_score))
         
 
+        if  dealer_hand_score == 21 and player_hand_score != 21:
+            print("Dealer has blackjack! Dealer wins!")
+        elif player_hand_score == 21:
+            print("You got blackjack! You win!")
+            quit()    
         
     while player_hand_score < 21:
 
@@ -91,38 +98,72 @@ def Blackjack(deck):
             deck.remove(p_dealt_card)
             print("Your hand is: ")
             print_card(player_hand)
-            print("Your score is: ",(player_hand_score))    
-
+                
+            
+                
+                
                 #check for ace if over
-            if player_hand_score <21 and player_hand[0].card_value == 11:
-                player_hand[0].card_value == 1
+                
+            c_number=0       
+            while player_hand_score >21 and player_hand[c_number].card_value == 11:
+                player_hand[c_number].card_value == 1
                 #forgot to update hand score
                 player_hand_score -= 10
+                c_number+=1
+            print("Your score is: ",(player_hand_score))    
 
+            
+
+        
+        elif gamble == "Stay":
+            while dealer_hand_score <=16:
+                print("Dealer hits")
+                d_dealt_card = random.choice(deck)
+                dealer_hand.append(d_dealt_card)
+                deck.remove(d_dealt_card)
+                dealer_hand_score += d_dealt_card.card_value
+                print("Dealers hand is: \n")
+                print_card(dealer_hand)
+                print("Dealers score is: \n",(dealer_hand_score))
             else:
                 break
-
-
-
-        if gamble == "Stay":
-            break
 
         else:
             print("Hit or Stay?")
 
-            
+    if gamble == "Stay":
+        while dealer_hand_score <=16:
+            d_dealt_card = random.choice(deck)
+            dealer_hand.append(d_dealt_card)
+            deck.remove(d_dealt_card)
+            dealer_hand_score += d_dealt_card.card_value
+            print("Dealers hand is: \n")
+            print_card(dealer_hand)
+            print("Dealers score is: \n",(dealer_hand_score))
+            if dealer_hand_score >21:
+                print(" Dealer busts")
+
+
 
 
     if player_hand_score >21:
         print(" You bust! \n Dealer wins!")
 
-    if player_hand_score == 21:
+    elif player_hand_score == 21:
         print("You got blackjack! You win!")
         quit()
 
-    if player_hand_score <21 and dealer_hand_score == 21:
-        print("Dealer has blackjack! Dealer win!")
+    if  dealer_hand_score == 21 and player_hand_score != 21:
+        print("Dealer has blackjack! Dealer wins!")
 
+    elif player_hand_score == dealer_hand_score:
+        print(" Tie game!")
+
+    if player_hand_score > dealer_hand_score and dealer_hand_score <21:
+        print("Player wins!")
+
+    if player_hand_score < dealer_hand_score and dealer_hand_score <21:
+        print("Dealer wins!")    
 
 
 Blackjack(deck)
