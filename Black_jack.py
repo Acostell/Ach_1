@@ -72,17 +72,27 @@ def Blackjack(deck):
         d_dealt_card = random.choice(deck)
         dealer_hand.append(d_dealt_card)
         deck.remove(d_dealt_card)
-        dealer_hand_score += d_dealt_card.card_value
+        
+        if len(player_hand)==1:
+            print("Dealers hand is:")
+            print_card(dealer_hand)
+            dealer_hand_score += d_dealt_card.card_value
+            print("Dealers score is:",dealer_hand_score)
+        while len(dealer_hand)==2:
+            print("Dealers hand is: ")
+            print_card(dealer_hand[:-1]),
+            print("And 1 hidden card")
+            print("Dealers score is: ",(dealer_hand_score))
+            dealer_hand_score += d_dealt_card.card_value
+            break  
 
-
-        #print dealers cards, only print first card
-        print("Dealers hand is: ")
-        print_card(dealer_hand[:-1])
-        print("Dealers score is: ",(dealer_hand_score-(dealer_hand[:1].card_value)))
+       #print dealers cards, only print first card
+       
         
 
         if  dealer_hand_score == 21 and player_hand_score != 21:
             print("Dealer has blackjack! Dealer wins!")
+            quit()
         elif player_hand_score == 21:
             print("You got blackjack! You win!")
             quit()    
