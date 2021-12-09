@@ -103,10 +103,10 @@ def Blackjack(deck):
                 
                 
                 #check for ace if over
-                
+
             c_number=0       
             while player_hand_score >21 and player_hand[c_number].card_value == 11:
-                player_hand[c_number].card_value == 1
+                player_hand[c_number].card_value = 1
                 #forgot to update hand score
                 player_hand_score -= 10
                 c_number+=1
