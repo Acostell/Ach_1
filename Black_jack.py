@@ -57,11 +57,35 @@ def Blackjack(deck):
         dealer_hand_score += dealer_hand.card_value
 
 
-#print dealers cards, only print first card
+        #print dealers cards, only print first card
         print("Dealers hand is: \n",dealer_hand[0])
         print("Dealer score is: \n",dealer_hand[0].card_value)
 
         
+        while player_hand_score >21:
+
+            gamble = input("Hit or Stay?")
+            gamble
+            if gamble == "Hit":
+                player_hand.append(dealt_card)
+                player_hand_score += player_hand.card_value
+                deck.remove(dealt_card)
+                #check for ace if over
+                if player_hand_score <21 and player_hand[0].card_value == 11:
+                    player_hand[0].card_value == 1
+                    #forgot to update hand score
+                    player_hand_score -= 10
+
+                else:
+                    break
+
+
+
+            if gamble == "Stay":
+                break
+
+
+
         
         
         
@@ -82,7 +106,7 @@ def Blackjack(deck):
             print("Dealer has blackjack! Dealer win!")
 
 
-
+Blackjack(deck)
 
 
 
