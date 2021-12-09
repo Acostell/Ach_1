@@ -33,6 +33,8 @@ def Blackjack(deck):
     #we need to deal cards but we need 2 cards so we need to set a limit
 
     while len(player_hand) <2:
+
+        #deal a card
         dealt_card = random.choice(deck)
         player_hand.append(dealt_card)
         #then we have to remove it so it doesnt get dealt twice
@@ -54,6 +56,41 @@ def Blackjack(deck):
         deck.remove(d_dealt_card)
         dealer_hand_score += dealer_hand.card_value
 
+
+#print dealers cards, only print first card
+        print("Dealers hand is: \n",dealer_hand[0])
+        print("Dealer score is: \n",dealer_hand[0].card_value)
+
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        if player_hand_score == 21:
+            print("You got blackjack! You win!")
+            quit()
+
+        if player_hand_score <21 and dealer_hand_score == 21:
+            print("Dealer has blackjack! Dealer win!")
+
+
+
+
+
+
+
+
+
+
+
+
 
 
