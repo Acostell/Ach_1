@@ -1,24 +1,27 @@
 #Black jack
 
 import random
-
-
     
-class Card(object):
-    def __init__(self,name,card_value,suit):
+class Card:
+    def __init__(self,suit,name,card_value):
          #need to identify/create cards for game
-        self.suits = suit
+        self.suit = suit
         self.name = name
         self.card_value = card_value
-card_value = {"A": 11, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7, "8":8, "9":9, "10":10, "J":10, "Q":10, "K":10}     
-name = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
-suit = ["Spades","Hearts","Diamonds","Clubs"]
+    def __repr__(self):
+        return repr(self.name)
+    
 
-#make a deck
-deck = []
-for name in name:
-    for suit in suit:
-        deck.append(Card(name,card_value,suit))
+def print_card(names):
+    for name in names:
+            print(name,'of',suit)
+    
+        
+    
+    
+
+        
+
 
 def Blackjack(deck):
     # need to nest? the deck for the game to know what to use for cards
@@ -29,6 +32,7 @@ def Blackjack(deck):
 
     player_hand_score = 0
     dealer_hand_score = 0
+    
     
     #we need to deal cards but we need 2 cards so we need to set a limit
 
@@ -41,10 +45,11 @@ def Blackjack(deck):
         deck.remove(dealt_card)
 
         #tell player cards and score
+        player_hand_score += dealt_card.card_value
 
-        player_hand_score += player_hand.card_value
-        print("Your hand is: \n",(player_hand))
-        print("Your score is: \n",(player_hand_score))
+        print("Your hand is: ")
+        print_card(player_hand)
+        print("Your score is: ",(player_hand_score))
 
 
 
@@ -54,11 +59,12 @@ def Blackjack(deck):
         d_dealt_card = random.choice(deck)
         dealer_hand.append(d_dealt_card)
         deck.remove(d_dealt_card)
-        dealer_hand_score += dealer_hand.card_value
+        dealer_hand_score += d_dealt_card.card_value
 
 
         #print dealers cards, only print first card
-        print("Dealers hand is: \n",dealer_hand[0])
+        print("Dealers hand is: \n")
+        #print_card(dealer_hand[0])
         print("Dealer score is: \n",dealer_hand[0].card_value)
 
         
@@ -105,6 +111,16 @@ def Blackjack(deck):
         if player_hand_score <21 and dealer_hand_score == 21:
             print("Dealer has blackjack! Dealer win!")
 
+suits = ["Spades","Hearts","Diamonds","Clubs"]
+names = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+card_value = {"A":11, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7, "8":8, "9":9, "10":10, "J":10, "Q":10, "K":10}     
+
+
+#make a deck
+deck = []
+for suit in suits:
+    for name in names:
+        deck.append(Card(suit,name,card_value[name]))
 
 Blackjack(deck)
 
