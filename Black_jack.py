@@ -77,8 +77,8 @@ def Blackjack(deck):
 
         #print dealers cards, only print first card
         print("Dealers hand is: ")
-        print_card(dealer_hand)
-        print("Dealers score is: ",(dealer_hand_score))
+        print_card(dealer_hand[:-1])
+        print("Dealers score is: ",(dealer_hand_score-(dealer_hand[:1].card_value)))
         
 
         if  dealer_hand_score == 21 and player_hand_score != 21:
@@ -89,7 +89,7 @@ def Blackjack(deck):
         
     while player_hand_score < 21:
 
-        gamble = input("Hit or Stay?")
+        gamble = input("Hit or Stay?\n")
             
         if gamble == "Hit":
             p_dealt_card = random.choice(deck)
@@ -108,6 +108,7 @@ def Blackjack(deck):
             while player_hand_score >21 and player_hand[c_number].card_value == 11:
                 player_hand[c_number].card_value = 1
                 #forgot to update hand score
+                #forgot == is a check so changed to =
                 player_hand_score -= 10
                 c_number+=1
             print("Your score is: ",(player_hand_score))    
@@ -129,7 +130,7 @@ def Blackjack(deck):
                 break
 
         else:
-            print("Hit or Stay?")
+            print("Hit or Stay?\n")
 
     if gamble == "Stay":
         while dealer_hand_score <=16:
@@ -148,6 +149,7 @@ def Blackjack(deck):
 
     if player_hand_score >21:
         print(" You bust! \n Dealer wins!")
+        quit()
 
     elif player_hand_score == 21:
         print("You got blackjack! You win!")
@@ -155,15 +157,19 @@ def Blackjack(deck):
 
     if  dealer_hand_score == 21 and player_hand_score != 21:
         print("Dealer has blackjack! Dealer wins!")
+        quit()
 
     elif player_hand_score == dealer_hand_score:
         print(" Tie game!")
+        quit
 
     if player_hand_score > dealer_hand_score and dealer_hand_score <21:
         print("Player wins!")
+        quit()
 
     if player_hand_score < dealer_hand_score and dealer_hand_score <21:
-        print("Dealer wins!")    
+        print("Dealer wins!") 
+        quit()   
 
 
 Blackjack(deck)
