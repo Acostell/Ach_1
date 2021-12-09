@@ -150,9 +150,9 @@ def Blackjack(deck):
             dealer_hand_score += d_dealt_card.card_value
             print("Dealers hand is: \n")
             print_card(dealer_hand)
-            print("Dealers score is: \n",(dealer_hand_score))
-            if dealer_hand_score >21:
-                print(" Dealer busts")
+            print("Dealers score is:",(dealer_hand_score))
+        if dealer_hand_score > 21:
+            print(" Dealer busts")
 
 
 
@@ -162,35 +162,33 @@ def Blackjack(deck):
         quit()
 
     elif player_hand_score == 21:
+        
         print("You got blackjack! You win!")
         quit()
 
     if  dealer_hand_score == 21 and player_hand_score != 21:
+        print("Dealer score is:",dealer_hand_score)
+        print("Players score is:",player_hand_score)
         print("Dealer has blackjack! Dealer wins!")
         quit()
 
     elif player_hand_score == dealer_hand_score:
+        print("Dealer score is:",dealer_hand_score)
+        print("Players score is:",player_hand_score)
         print(" Tie game!")
-        quit
+        quit()
 
     if player_hand_score > dealer_hand_score and dealer_hand_score <21:
+        print("Dealer score is:",dealer_hand_score)
+        print("Players score is:",player_hand_score)
         print("Player wins!")
         quit()
 
     if player_hand_score < dealer_hand_score and dealer_hand_score <21:
+        print("Dealer score is:",dealer_hand_score)
+        print("Players score is:",player_hand_score)
+
         print("Dealer wins!") 
         quit()   
 
-
 Blackjack(deck)
-
-
-
-
-
-
-
-
-
-
-
